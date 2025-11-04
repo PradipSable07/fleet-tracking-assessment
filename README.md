@@ -97,7 +97,8 @@ Your submission will be evaluated based on:
 - Deploy the dashboard to a hosting platform
 - **Repository Access:** Keep your repository private to avoid visibility by other candidates. Add the following email addresses as collaborators:
   - vedantp@mapup.ai
-  - ajayap@mapup.ai  
+  - ajayap@mapup.ai 
+  - asijitp@mapup.ai 
   - atharvd@mapup.ai
   - karkuvelpandip@mapup.ai
 
