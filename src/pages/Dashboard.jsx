@@ -9,6 +9,7 @@ import MapView from "../components/map/MapView";
 import SpeedChart from "../components/charts/SpeedChart";
 import FuelChart from "../components/charts/FuelChart";
 import FleetStats from "../components/ui/FleetStats";
+import PlaybackControls from "../components/ui/PlaybackControls";
 
 export default function Dashboard() {
   const { tripIndex } = useTripsIndex();
@@ -19,7 +20,6 @@ export default function Dashboard() {
 
   const activeTrip = tripIndex.find(t => t.tripId === selectedTripId);
   const events = useTripEvents(activeTrip?.file);
-
   const sim = useEventSimulation(events, dispatch, playback);
 
   return (
@@ -33,6 +33,18 @@ export default function Dashboard() {
       <FleetStats />
 
       <MapView />
+      <PlaybackControls
+        onStart={() => sim.start()}
+        onStop={() => sim.stop()}
+        onReset={() => sim.reset()}
+        isPlaying={playback.isPlaying}
+        speed={playback.speed}
+        onChangeSpeed={s => dispatch(setSpeed(s))}
+        simTime={playback.simTime}
+        processedCount={playback.processedCount}
+        totalEvents={events.length}
+      
+      />
 
       {selectedTripId && <SpeedChart tripId={selectedTripId} />}
       {selectedTripId && <FuelChart tripId={selectedTripId} />}

@@ -3,17 +3,19 @@ import { pushEventBatch } from "../features/eventsSlice";
 
 export function useEventSimulation(events, dispatch, playback) {
   const simRef = useRef(null);
+  const indexRef = useRef(0);
 
   const start = () => {
-    if (simRef.current) return;
+    if (simRef.current) return;    
 
-    let index = 0;
+    indexRef.current = 0;            
 
     simRef.current = setInterval(() => {
       if (!playback.isPlaying) return;
 
-      const batch = events.slice(index, index + 300);
-      index += 300;
+      const startIndex = indexRef.current;
+      const batch = events.slice(startIndex, startIndex + 300);
+      indexRef.current += 300;
 
       if (batch.length === 0) {
         stop();
@@ -25,16 +27,19 @@ export function useEventSimulation(events, dispatch, playback) {
   };
 
   const stop = () => {
-    clearInterval(simRef.current);
-    simRef.current = null;
+    if (simRef.current) {
+      clearInterval(simRef.current);
+      simRef.current = null;
+    }
   };
 
   const reset = () => {
     stop();
-    index = 0;
+    indexRef.current = 0;    
   };
 
   useEffect(() => {
+    // Cleanup on unmount
     return () => stop();
   }, []);
 

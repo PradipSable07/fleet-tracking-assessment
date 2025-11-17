@@ -9,6 +9,7 @@ export function useTripsIndex() {
       try {
         const res = await fetch("/tripIndex.json");
         const json = await res.json();
+        console.log("Json----",json);
         setTripIndex(json);
       } catch (err) {
         console.error("❌ Failed to load trip index", err);

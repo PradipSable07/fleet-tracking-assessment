@@ -17,3 +17,22 @@ export function normalizeEvent(e) {
     raw: e
   };
 }
+
+
+export function flattenJson(data) {
+  // If data is a single event
+  if (!Array.isArray(data)) return [];
+
+  // Case 1: [ [events], [events] ]
+  if (Array.isArray(data[0]) && !data[0].event_id) {
+    return data.flat();
+  }
+
+  // Case 2: [ {meta}, [events] ]
+  if (Array.isArray(data[1]) && Array.isArray(data[1])) {
+    return data[1];
+  }
+
+  // Case 3: correct shape already
+  return data;
+}
