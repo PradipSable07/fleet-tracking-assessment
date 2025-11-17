@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { useTripsIndex } from "../../features/trips/useTripsIndex";
-import { useTripEvents } from "../../features/trips/useTripEvents";
-import { useEventSimulation } from "../../features/events/useEventSimulation";
-
-import FleetStats from "../../modules/fleet/FleetStats";
-import TripList from "../../modules/fleet/TripList";
-import MapView from "../../modules/map/MapView";
-import SpeedChart from "../../modules/charts/SpeedChart";
-import FuelChart from "../../modules/charts/FuelChart";
+import { useEventSimulation } from "../hooks/useEventSimulation";
+import {useTripsIndex} from "../apis/useTripIndex";
+import {useTripEvents} from "../apis/useTripEvents";
+import TripList from "../components/ui/TripList";
+import MapView from "../components/map/MapView";
+import SpeedChart from "../components/charts/SpeedChart";
+import FuelChart from "../components/charts/FuelChart";
+import FleetStats from "../components/ui/FleetStats";
 
 export default function Dashboard() {
   const { tripIndex } = useTripsIndex();

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { pushEventBatch } from "./eventsSlice";
+import { pushEventBatch } from "../features/eventsSlice";
 
 export function useEventSimulation(events, dispatch, playback) {
   const simRef = useRef(null);

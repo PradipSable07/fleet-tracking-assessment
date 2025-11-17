@@ -7,7 +7,7 @@ export function useTripsIndex() {
   useEffect(() => {
     async function load() {
       try {
-        const res = await fetch("/data/tripIndex.json");
+        const res = await fetch("/tripIndex.json");
         const json = await res.json();
         setTripIndex(json);
       } catch (err) {

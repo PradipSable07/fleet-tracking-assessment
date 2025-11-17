@@ -1,0 +1,22 @@
+[
+  {
+    "tripId": "cross_country_long_haul",
+    "file": "./assessment-2025-11-17-21-10-52/trip_1_cross_country.json"
+  },
+  {
+    "tripId": "urban_dense_delivery",
+    "file": "./assessment-2025-11-17-21-10-52/trip_2_urban_dense.json"
+  },
+  {
+    "tripId": "mountain_route_cancelled",
+    "file": "./assessment-2025-11-17-21-10-52/trip_3_mountain_route.json"
+  },
+  {
+    "tripId": "southern_technical_issues",
+    "file": "./assessment-2025-11-17-21-10-52/trip_4_southern_technical.json"
+  },
+  {
+    "tripId": "regional_logistics",
+    "file": "./assessment-2025-11-17-21-10-52/trip_5_regional_logistics.json"
+  }
+]

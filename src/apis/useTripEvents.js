@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { normalizeEvent } from "../../utils/normalizeEvent";
+import { normalizeEvent } from "../utils/normalizeEvent";
 
 export function useTripEvents(file) {
   const [events, setEvents] = useState([]);
